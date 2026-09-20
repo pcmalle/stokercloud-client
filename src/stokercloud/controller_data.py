@@ -109,3 +109,13 @@ class ControllerData:
     @property
     def consumption_day(self):
         return Value(self.get_sub_item('hopperdata', '3')['value'], Unit.KILO_GRAM)
+
+    @property
+    def shaft_temperature_current(self):
+        # Henter ID 3 (Skakt/Røggas) fra kedeldata-gruppen
+        return Value(self.get_sub_item('boilerdata', '3')['value'], Unit.DEGREE)
+
+    @property
+    def consumption_trip_2(self):
+        # Henter ID 2 (Trip 2) fra magasin/forbrugsdata-gruppen
+        return Value(self.get_sub_item('hopperdata', '2')['value'], Unit.KILO_GRAM)
